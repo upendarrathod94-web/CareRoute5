@@ -1,0 +1,10 @@
+{
+  "name": "CareRoute",
+  "description": "Accessible medicine reminders, doctor appointments, and privacy-first Care Circle family support for patients and caregivers.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

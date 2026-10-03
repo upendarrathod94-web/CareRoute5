@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Background Squircle with Safe Area -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="none" stroke="#334155" stroke-width="4" stroke-opacity="0.6" />
+
+  <!-- Outer Glow Pulse -->
+  <circle cx="256" cy="256" r="160" fill="none" stroke="url(#tealGrad)" stroke-width="4" stroke-opacity="0.25" />
+
+  <!-- Medical Cross / Care Symbol -->
+  <g filter="url(#shadow)">
+    <!-- Vertical Bar -->
+    <rect x="226" y="146" width="60" height="220" rx="30" fill="url(#tealGrad)" />
+    <!-- Horizontal Bar -->
+    <rect x="146" y="226" width="220" height="60" rx="30" fill="url(#tealGrad)" />
+    <!-- Center Care Pill / Heart Accent -->
+    <circle cx="256" cy="256" r="42" fill="#ffffff" />
+    <!-- Heart Icon in Center -->
+    <path d="M256 270l-12-11c-14-13-24-22-24-33 0-9 7-16 16-16 6 0 11 3 14 7 3-4 8-7 14-7 9 0 16 7 16 16 0 11-10 20-24 33l-12 11z" fill="#0d9488" />
+  </g>
+
+  <!-- Route Nodes representing Care Circle & Connected Pathway -->
+  <circle cx="160" cy="160" r="16" fill="url(#blueGrad)" filter="url(#shadow)" />
+  <circle cx="352" cy="160" r="16" fill="url(#blueGrad)" filter="url(#shadow)" />
+  <circle cx="160" cy="352" r="16" fill="url(#blueGrad)" filter="url(#shadow)" />
+  <circle cx="352" cy="352" r="16" fill="url(#blueGrad)" filter="url(#shadow)" />
+
+  <!-- Dotted Connecting Arc -->
+  <path d="M 160 160 Q 256 120 352 160" fill="none" stroke="#60a5fa" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round" />
+  <path d="M 160 352 Q 256 392 352 352" fill="none" stroke="#60a5fa" stroke-width="4" stroke-dasharray="8 8" stroke-linecap="round" />
+</svg>

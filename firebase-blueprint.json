@@ -1,0 +1,130 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with contact and account details",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "phoneVerified": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Medicine": {
+      "title": "Medicine",
+      "description": "Prescription and over the counter medicines",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "dose": { "type": "string" },
+        "instructions": { "type": "string" },
+        "time": { "type": "string" },
+        "period": { "type": "string" },
+        "status": { "type": "string" },
+        "pillColor": { "type": "string" },
+        "shape": { "type": "string" },
+        "remainingCount": { "type": "number" },
+        "totalQuantity": { "type": "number" },
+        "refillThreshold": { "type": "number" },
+        "rxNumber": { "type": "string" },
+        "pharmacyName": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "status"]
+    },
+    "Appointment": {
+      "title": "Appointment",
+      "description": "Doctor appointments and consultations",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "doctorId": { "type": "string" },
+        "doctorName": { "type": "string" },
+        "specialty": { "type": "string" },
+        "clinic": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "reason": { "type": "string" },
+        "status": { "type": "string" },
+        "caregiverNotified": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["doctorName", "status"]
+    },
+    "MedicineHistory": {
+      "title": "MedicineHistory",
+      "description": "Medicine log history entries",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "medicineName": { "type": "string" },
+        "dose": { "type": "string" },
+        "scheduledTime": { "type": "string" },
+        "status": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "dateLabel": { "type": "string" }
+      },
+      "required": ["medicineName", "status"]
+    },
+    "WellnessCheckin": {
+      "title": "WellnessCheckin",
+      "description": "Daily mood and wellness check-in entries",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "mood": { "type": "string" },
+        "note": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["mood"]
+    },
+    "Caregiver": {
+      "title": "Caregiver",
+      "description": "Care Circle members and permissions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "relation": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "status": { "type": "string" },
+        "joinedDate": { "type": "string" }
+      },
+      "required": ["name", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Private user account profile"
+    },
+    "/users/{userId}/medications/{medicationId}": {
+      "schema": "Medicine",
+      "description": "Private user prescribed medications and schedules"
+    },
+    "/users/{userId}/appointments/{appointmentId}": {
+      "schema": "Appointment",
+      "description": "Private user doctor appointments"
+    },
+    "/users/{userId}/medicationHistory/{historyId}": {
+      "schema": "MedicineHistory",
+      "description": "Private user medication compliance history logs"
+    },
+    "/users/{userId}/wellness/{entryId}": {
+      "schema": "WellnessCheckin",
+      "description": "Private user daily mood and wellness check-ins"
+    },
+    "/users/{userId}/careCircle/{memberId}": {
+      "schema": "Caregiver",
+      "description": "Private user authorized Care Circle family members"
+    }
+  }
+}
